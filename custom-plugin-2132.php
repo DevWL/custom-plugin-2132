@@ -76,6 +76,18 @@ class CustomPluginOne
         add_action( 'admin_enqueue_scripts', [ $this, 'enqueueAdmin' ] );
         add_action( 'wp_enqueue_scripts', [ $this, 'enqueueFront' ] );
     }
+
+    public function checkHooks(){
+        $debug_tags = array();
+        add_action( 'all', function ( $tag ) {
+            global $debug_tags;
+            if ( in_array( $tag, $debug_tags ) ) {
+                return;
+            }
+            echo "<pre>" . $tag . "</pre>";
+            $debug_tags[] = $tag;
+        } );
+    }
 }
 
 if( class_exists('CustomPluginOne') ){
@@ -91,4 +103,8 @@ register_deactivation_hook( __FILE__, [ $pluginClass, 'deactivate' ] );
 register_deactivation_hook( __FILE__, [ $pluginClass, 'unistall' ] );
 
 
-$pluginClass->getBooks();
+
+
+add_action('et_builder_render_layout', [$pluginClass, 'getBooks']);
+
+$pluginClass->checkHooks();
