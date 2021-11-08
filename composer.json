@@ -1,0 +1,16 @@
+{
+    "name": "plugin/myplugin",
+    "description": "WP Plugin",
+    "autoload": {
+        "psr-4": {
+            "Plugin\\MyPlugin\\": "class/"
+        }
+    },
+    "authors": [
+        {
+            "name": "DevWL",
+            "email": "w.liszkiewicz@gmail.com"
+        }
+    ],
+    "require": {}
+}
