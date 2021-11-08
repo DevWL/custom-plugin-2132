@@ -2,8 +2,6 @@
 
 namespace Plugin\MyPlugin\Util;
 
-use Plugin\MyPlugin\CustomPlugin;
-
 class GetPluginPath
 {
     /**
@@ -12,6 +10,6 @@ class GetPluginPath
      * @return string Plugin directory path
      */
     public static function getPath(){
-        return CustomPlugin::getPluginPath();
+        return str_replace(array('/', '\\'), DIRECTORY_SEPARATOR, PLUGIN_DIR);
     }
 }

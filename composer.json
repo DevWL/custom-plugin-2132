@@ -1,6 +1,6 @@
 {
     "name": "plugin/myplugin",
-    "description": "WP Plugin",
+    "description": "WP Plugin starter theme https://www.youtube.com/watch?v=nbF4hWJ1hJA&list=PLriKzYyLb28kR_CPMz8uierDWC2y3znI2&index=11",
     "autoload": {
         "psr-4": {
             "Plugin\\MyPlugin\\": "class/"
