@@ -6,6 +6,7 @@
 require __DIR__ . '/vendor/autoload.php';
 
 use Plugin\MyPlugin\CustomPlugin;
+use Plugin\MyPlugin\Admin\CustomPost\ExamplePostType;
 
 /**
  * Security check
@@ -26,6 +27,21 @@ define('PLUGIN_NAME', plugin_basename(__DIR__)); // > custom-plugin-2132
 if( class_exists('Plugin\MyPlugin\CustomPlugin') ){
     $pluginClass = new CustomPlugin();
     $pluginClass->register();
+
+    $somePostType = new ExamplePostType();
 }
 
 // add_action('et_builder_render_layout', [$pluginClass, 'getBooks']);
+
+
+
+ // function that runs when shortcode is called
+ function wpb_demo_shortcode() { 
+ 
+    // Things that you want to do. 
+    $message = 'Hello world!'; 
+    // Output needs to be return
+    return $message;
+} 
+    // register shortcode
+add_shortcode('greeting', 'wpb_demo_shortcode'); 

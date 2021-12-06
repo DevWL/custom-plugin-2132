@@ -1,5 +1,7 @@
 <?php
 
+// https://www.youtube.com/watch?v=ruDWmHRNxvE&list=PLriKzYyLb28kR_CPMz8uierDWC2y3znI2&index=11
+
 namespace Plugin\MyPlugin;
 
 use Plugin\MyPlugin\CustomPluginOnActivate;
@@ -33,37 +35,37 @@ class CustomPlugin
     {
         add_action('admin_enqueue_scripts', [$this, 'enqueueAdmin']);
         add_action('wp_enqueue_scripts', [$this, 'enqueueFront']);
-        add_action('init', [$this, 'registerPostType']);
+        // add_action('init', [$this, 'registerPostType']);
 
         $this->adminSettingPage->register();
     }
 
-    public function registerPostType()
-    {
-        $postTypeNameSingular = 'book';
-        register_post_type($postTypeNameSingular, [
-            'public' => true,
-            'label' => ucfirst($postTypeNameSingular . 's'),
-        ]);
-    }
+    // public function registerPostType()
+    // {
+    //     $postTypeNameSingular = 'book';
+    //     register_post_type($postTypeNameSingular, [
+    //         'public' => true,
+    //         'label' => ucfirst($postTypeNameSingular . 's'),
+    //     ]);
+    // }
 
-    public function getBooks()
-    {
-        $books = get_posts([
-            'post_type' => 'book',
-            'num_posts' => -1,
-        ]);
+    // public function getBooks()
+    // {
+    //     $books = get_posts([
+    //         'post_type' => 'book',
+    //         'num_posts' => -1,
+    //     ]);
 
-        foreach ($books as $book) {
-            echo $book->ID . "<br>";
-            echo $book->post_title . "<br>";
-            echo $book->post_excerpt . "<br>";
-            echo $book->post_content . "<br>";
-        }
-        // echo "<pre>";
-        // print_r($books);
+    //     foreach ($books as $book) {
+    //         echo $book->ID . "<br>";
+    //         echo $book->post_title . "<br>";
+    //         echo $book->post_excerpt . "<br>";
+    //         echo $book->post_content . "<br>";
+    //     }
+    //     // echo "<pre>";
+    //     // print_r($books);
 
-    }
+    // }
 
     public function enqueueAdmin()
     {
