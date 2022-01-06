@@ -1,0 +1,30 @@
+<?php 
+
+namespace Plugin\MyPlugin\Front\Shortcodes;
+
+class GeneralShortcode
+{
+
+    /**
+     * Holds array of shortcodes name
+     */
+    protected $shortcodeList=[];
+
+    /**
+     * Undocumented function
+     *
+     * @param [string] $methodName - __FUNCTION__
+     * @return void
+     */
+    protected function addShortcodeToList($shorcodeName, $methodName){
+        $this->shortcodeList[$shorcodeName] = $methodName;
+    }
+
+    protected function registerAllShortcodes(){
+        foreach ($this->shortcodeList as $key => $value) {
+            add_shortcode($key, [$this, $value]);
+        }
+        
+    }
+
+}

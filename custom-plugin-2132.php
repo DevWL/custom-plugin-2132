@@ -7,6 +7,7 @@ require __DIR__ . '/vendor/autoload.php';
 
 use Plugin\MyPlugin\CustomPlugin;
 use Plugin\MyPlugin\Admin\CustomPost\ExamplePostType;
+use Plugin\MyPlugin\Front\Shortcodes\ProductShortcodes;
 
 /**
  * Security check
@@ -29,6 +30,7 @@ if( class_exists('Plugin\MyPlugin\CustomPlugin') ){
     $pluginClass->register();
 
     $somePostType = new ExamplePostType();
+    $shortcode = new ProductShortcodes();
 }
 
 // add_action('et_builder_render_layout', [$pluginClass, 'getBooks']);

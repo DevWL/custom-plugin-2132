@@ -29,12 +29,19 @@ class ExamplePostType implements CustomPostTypeInterface
         ]);
     }
 
-    public function showBooks()
+    public function showBooks($catId = false)
     {
-        $books = get_posts([
+        $query = [
             'post_type' => $this->customPostTypeName, // "book"
-            'num_posts' => -1,
-        ]);
+            'num_posts' => -1, // unlimited
+        ];
+
+        if($catId !== false){
+            $query["terms"]=$catId;
+        }
+
+        $books = get_posts($query);
+        
         $output = "Books List: <br>";
         foreach ($books as $book) {
             $output .= $book->ID . "<br>";
