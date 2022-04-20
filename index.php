@@ -1,5 +1,5 @@
-<?php
-
-/**
- * Silent is gold    
+<?php
+
+/**
+ * Silent is gold    
  */
